@@ -6,7 +6,6 @@ import { createTheme, CssBaseline, ThemeProvider, Button, Typography } from '@mu
 import darkTheme from '@/app/theme/darkTheme';
 import lightTheme from '@/app/theme/lightTheme';
 
-// @ts-ignore
 export const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 export default function Home() {
@@ -31,7 +30,7 @@ export default function Home() {
             <ThemeProvider theme={theme}>
                 <CssBaseline />
                 <Typography variant="h6" gutterBottom>
-                    Welcome to Mini Chatbot
+                    Welcome to Mini Chatbot!!!
                 </Typography>
                 <Button
                     variant="contained"

@@ -4,6 +4,7 @@ version: '3.8'
 
 # Defines all the containers that will be created and managed
 services:
+
   #  # PostgreSQL database container for storing chat history and user data
   #  db:
   #    # Uses official PostgreSQL image from Docker Hub
@@ -27,7 +28,8 @@ services:
   #      - chatbot-network
   #    # Restart policy for database
   #    restart: unless-stopped
-  #
+
+
   #  # Ollama service for running Llama LLM models locally
   #  llama:
   #    # Uses official Ollama image for LLM inference
@@ -45,43 +47,43 @@ services:
   #      - chatbot-network
   #    # Restart policy for LLM service
   #    restart: unless-stopped
-  #
-  #  # Configures the Node.js backend API server container
-  #  backend:
-  #    # Tells Docker to build a custom image from source code
-  #    build:
-  #      context: ./backend
-  #      dockerfile: Dockerfile
-  #    # Sets custom container name for easier identification
-  #    container_name: mini-chatbot-backend
-  #    # Exposes container ports to host machine - maps host:container
-  #    ports:
-  #      - "5000:5000"
-  #    # Sets environment variables that the application uses at runtime
-  #    environment:
-  #      - NODE_ENV=development
-  #      - PORT=5000
-  #      - DB_HOST=db
-  #      - DB_PORT=5432
-  #      - DB_NAME=chatbot_db
-  #      - DB_USER=chatbot_user
-  #      - DB_PASSWORD=chatbot_password
-  #      - LLAMA_API_URL=http://llama:11434
-  #    # Mounts host directories into container for live code sync
-  #    volumes:
-  #      - ./backend:/app
-  #      - /app/node_modules
-  #    # Connects container to custom network for service communication
-  #    networks:
-  #      - chatbot-network
-  #    # Ensures backend starts after database and LLM are ready
-  #    depends_on:
-  #      - db
-  #      - llama
-  #    # Auto-restart policy - restarts if crashed (except manual stops)
-  #    restart: unless-stopped
-  #    # Overrides container startup command to run in development mode
-  #    entrypoint: ["npm", "run", "dev"]
+
+
+  backend:
+    # Tells Docker to build a custom image from source code
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    # Sets custom container name for easier identification
+    container_name: mini-chatbot-backend
+    # Exposes container ports to host machine - maps host:container
+    ports:
+      - "5000:5000"
+    # Sets environment variables that the application uses at runtime
+    environment:
+      - ENVIRONMENT=development  # More generic than NODE_ENV for Python
+      - PORT=5000
+      - PYTHONPATH=/app          # Good for Python projects
+      - PYTHONUNBUFFERED=1       # Ensures Python output is visible in logs
+    #      - DB_HOST=db
+    #      - DB_PORT=5432
+    #      - DB_NAME=chatbot_db
+    #      - DB_USER=chatbot_user
+    #      - DB_PASSWORD=chatbot_password
+    #      - LLAMA_API_URL=http://llama:11434
+    # Mounts host directories into container for live code sync
+    volumes:
+      - ./backend:/app
+    # Connects container to custom network for service communication
+    networks:
+      - chatbot-network
+    # Ensures backend starts after database and LLM are ready
+    #    depends_on:
+    #      - db
+    #      - llama
+    # Auto-restart policy - restarts if crashed (except manual stops)
+    restart: unless-stopped
+
 
   # Configures the React frontend web application container
   frontend:
@@ -105,9 +107,13 @@ services:
     networks:
       - chatbot-network
     restart: unless-stopped
+
+
 networks:
   chatbot-network:
     driver: bridge
+
+
 volumes:
   postgres_data:          # Persistent storage for PostgreSQL database
   ollama_data:           # Persistent storage for Llama models
