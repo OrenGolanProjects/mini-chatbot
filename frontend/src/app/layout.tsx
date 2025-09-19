@@ -4,7 +4,7 @@ import React from 'react';
 import {createTheme, CssBaseline, ThemeProvider} from '@mui/material';
 import darkTheme from "@/app/theme/darkTheme";
 import lightTheme from "@/app/theme/lightTheme";
-import {ColorModeContext as ColorModeContext1} from "@/app/colorModeContext";
+import {ColorModeContext} from "@/app/colorModeContext";
 
 export default function RootLayout({ children, }: {
     children: React.ReactNode;
@@ -34,12 +34,12 @@ export default function RootLayout({ children, }: {
     return (
         <html lang="en">
         <body>
-        <ColorModeContext1 value={colorMode}>
+        <ColorModeContext value={colorMode}>
             <ThemeProvider theme={mode === 'dark' ? darkThemeChosen : lightThemeChosen} >
                 <CssBaseline />
                 {children}
             </ThemeProvider>
-        </ColorModeContext1>
+        </ColorModeContext>
         </body>
         </html>
     );

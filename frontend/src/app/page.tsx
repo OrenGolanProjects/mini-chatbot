@@ -1,12 +1,12 @@
 // app/page.tsx
-'use client'; // Required for client-side interactivity in App Router
+'use client';
 
 import React from 'react';
 import { createTheme, CssBaseline, ThemeProvider, Button, Typography } from '@mui/material';
 import darkTheme from '@/app/theme/darkTheme';
 import lightTheme from '@/app/theme/lightTheme';
+import {ColorModeContext} from "@/app/colorModeContext";
 
-export const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 export default function Home() {
     const [mode, setMode] = React.useState<'light' | 'dark'>('dark');
