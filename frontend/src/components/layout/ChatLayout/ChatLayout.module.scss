@@ -1,0 +1,23 @@
+.chat_layout_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat_layout_paper {
+  width: 95%;
+  height: calc(80vh - 64px);
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin: 16px;
+  border: 1px solid #ccc;
+}
+
+.main_content {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  gap: 16px;
+  overflow: hidden;
+}

@@ -1,0 +1,17 @@
+/* InputBar.module.scss */
+.input_bar_container {
+  margin-top: 20px;
+}
+
+.input_bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 16px;
+  max-width: 100%;
+}
+
+
+.send_button {
+  height: -webkit-fill-available;
+}

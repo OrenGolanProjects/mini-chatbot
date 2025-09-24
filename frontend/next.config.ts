@@ -2,25 +2,15 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
     reactStrictMode: true,
-    transpilePackages: [],
-    experimental: {},
+    transpilePackages: ['@mui/x-data-grid', '@mui/x-data-grid-generator'],
 
-    webpack: (config, { dev, isServer }) => {
-        if (dev && !isServer) {
-            // Force polling for file watching in Docker
-            config.watchOptions = {
-                poll: 1000,
-                aggregateTimeout: 300,
-                ignored: /node_modules/,
-            };
-        }
-
-        return config;
+    experimental: {
+        optimizePackageImports: ['@mui/material', '@mui/icons-material'],
     },
 
-    onDemandEntries: {
-        maxInactiveAge: 25 * 1000,
-        pagesBufferLength: 2,
+    turbo: {
+        root: __dirname,
+        rules: {},
     },
 };
 

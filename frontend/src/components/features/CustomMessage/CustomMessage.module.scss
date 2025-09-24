@@ -1,0 +1,25 @@
+.messageContainer {
+  margin-bottom: 30px;
+  max-width: 70%;
+  padding: 12px;
+  border-radius: 8px;
+
+  .messageContent {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    .textContainer {
+      display: flex;
+      flex-direction: column;
+
+      .messageText {
+        margin-bottom: 4px;
+      }
+
+      .timestamp {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}

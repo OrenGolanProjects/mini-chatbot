@@ -1,0 +1,20 @@
+.conversationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.conversationBtns {
+  display: flex;
+  gap: 8px;
+}
+
+.conversationText {
+  white-space: nowrap;       // Prevent text from wrapping to a new line
+  overflow: hidden;          // Hide overflow
+  text-overflow: ellipsis;   // Show '...' when text is too long
+  max-width: 100%;           // Ensure it respects container width
+  display: block;            // Or inline-block depending on your layout
+}

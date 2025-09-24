@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "WATCHPACK_POLLING=true next dev --turbopack",
+    "dev": "next dev --turbopack",
     "dev:docker": "next dev --hostname 0.0.0.0",
     "build": "next build --turbopack",
     "start": "next start",
@@ -12,6 +12,8 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.2",
+    "@mui/joy": "^5.0.0-beta.52",
     "@mui/material": "^7.3.2",
     "@mui/styles": "^6.5.0",
     "next": "15.5.3",
