@@ -6,19 +6,20 @@ import scss from "./Conversation.module.scss"
 
 export interface ConversationProps {
     text: string;
-    sender: 'user' | 'bot' | string;
     timestamp: string;
 }
 
-const Conversation:React.FC<ConversationProps> = ({ text, sender, timestamp }) => {
+const Conversation:React.FC<ConversationProps> = ({ text, timestamp }) => {
     return (
         <Paper className={scss.conversationContainer} elevation={3}>
-            <CustomTextField className={scss.conversationText} placeholder="Message header" >
-                temp text
-                {text}
-                {sender}
-                {timestamp}
-            </CustomTextField>
+            <div>
+                <CustomTextField className={scss.conversationText}>
+                    {text}
+                </CustomTextField>
+                <CustomTextField className={scss.conversationTimestamp}>
+                    {timestamp}
+                </CustomTextField>
+            </div>
 
             <div className={scss.conversationBtns}>
                 <CustomButton>

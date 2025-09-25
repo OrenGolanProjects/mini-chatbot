@@ -12,7 +12,7 @@ import CustomButton from "@/components/ui/CustomButton/CustomButton";
 import CustomTextField from "@/components/ui/CustomTextField/CustomTextField";
 import {useTheme} from "@mui/joy";
 
-const pages = []
+const pages = ['']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header() {
@@ -45,7 +45,6 @@ function Header() {
                         variant="h6"
                         noWrap
                         component="a"
-                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },

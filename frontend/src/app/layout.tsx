@@ -7,8 +7,6 @@ import lightTheme from "@/theme/lightTheme";
 import {ColorModeContext} from "@/app/colorModeContext";
 import Header from "@/components/layout/Header/Header";
 import ChatLayout from "@/components/layout/ChatLayout/ChatLayout";
-import scss from "./Home.module.scss";
-import CustomButton from "@/components/ui/CustomButton/CustomButton";
 
 export default function RootLayout({ children, }: {
     children: React.ReactNode;
@@ -35,10 +33,6 @@ export default function RootLayout({ children, }: {
         [mode]
     );
 
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        console.log('CustomButton clicked!', event);
-    };
-
     return (
         <html lang="en">
             <body suppressHydrationWarning={true}>
@@ -47,6 +41,7 @@ export default function RootLayout({ children, }: {
                         <CssBaseline />
                         <Header />
                         <ChatLayout />
+                        {children}
                     </ThemeProvider>
                 </ColorModeContext>
             </body>
